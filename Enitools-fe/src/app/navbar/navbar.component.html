@@ -1,0 +1,17 @@
+<nav class="navbar navbar-expand-lg border-bottom border-secondary mb-2">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/">{{title}}</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="nav nav-underline me-auto mb-2 mb-lg-0">
+        <ng-template ngFor let-item [ngForOf]="links" let-i="index">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/{{links[i].link}}" routerLinkActive="active" ariaCurrentWhenActive="page">{{links[i].name}}</a>
+          </li>
+        </ng-template>
+      </ul>
+    </div>
+  </div>
+</nav>

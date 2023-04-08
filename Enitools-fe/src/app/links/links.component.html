@@ -1,0 +1,8 @@
+<h1>Useful links</h1>
+<ul>
+    <ng-template ngFor let-item [ngForOf]="links" let-i="index">
+        <li class="nav-item">
+          <a href="{{item.url}}">{{item.title}}</a>
+        </li>
+      </ng-template>
+</ul>

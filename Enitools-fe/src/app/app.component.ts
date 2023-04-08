@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {NavbarInfo} from './navbar/navbar.component';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Enitools-fe';
+
+  title = 'Enigame Toolkit';
+
+  navlinks = [
+    new NavbarInfo("Conversions", "conversions"),
+    new NavbarInfo("Ciphers", 'ciphers'),
+    new NavbarInfo("Codes", 'codes'),
+    new NavbarInfo("Links", 'links'),
+  ]
+
 }

@@ -1,0 +1,8 @@
+<div class="card">
+    <div class="card-header">{{title}}</div>
+    <div class="card-body">
+        <div class="form-outline">
+            <textarea class="form-control" id="{{title}}" rows="4" placeholder="{{placeholder}}" [value]="text" (input)="textChanged($event)"></textarea>
+        </div>
+    </div>
+</div>
