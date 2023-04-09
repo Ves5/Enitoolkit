@@ -1,5 +1,6 @@
 <!-- <app-navbar [links]="links"> -->
-<div class="container">
+<div class="container" id="t2c">
+    <h2>Text to codes conversions</h2>
     <div class="row gy-3 gx-3">
         <app-text-input-titled class="col-md-6" title="Text" [(text)]="normalText" placeholder="Text goes here..." (textChange)="convertNormalText()" ></app-text-input-titled>
         <app-text-input-titled class="col-md-6" title="Binary" [(text)]="binaryText" placeholder="Binary code goes here..." (textChange)="convertBinText()" ></app-text-input-titled>
@@ -7,5 +8,13 @@
         <app-text-input-titled class="col-md-6" title="Base64" [(text)]="b64Text" placeholder="Base64 code goes here..." (textChange)="convertB64Text()" ></app-text-input-titled>
         <app-text-input-titled class="col-md-6" title="ASCII Code" [(text)]="asciiText" placeholder="ASCII code goes here..." (textChange)="convertAsciiText()" ></app-text-input-titled>
         <app-text-input-titled class="col-md-6" title="ROT13 Code" [(text)]="rot13Text" placeholder="ROT13 code goes here..." (textChange)="convertRot13Text()" ></app-text-input-titled>
+    </div>
+</div>
+<hr>
+<div class="container" id="l2n">
+    <h2>Letter to number conversion</h2>
+    <div class="row gy-3 gx-3">
+        <app-text-input-titled class="col-md-6" title="Letters" [(text)]="letterText" placeholder="Letters go here" (textChange)="convertLetterText()" ></app-text-input-titled>
+        <app-text-input-titled class="col-md-6" title="Numbers" [(text)]="numberText" placeholder="Numbers go here" (textChange)="convertNumberText()" ></app-text-input-titled>
     </div>
 </div>

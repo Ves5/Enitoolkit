@@ -7,22 +7,15 @@ import { NavbarInfo } from '../navbar/navbar.component';
   styleUrls: ['./convers.component.css']
 })
 export class ConversComponent {
-
-  // links = [
-  //   new NavbarInfo("Text", "text", true),
-  //   new NavbarInfo("Binary", "bin", true),
-  //   new NavbarInfo("Hexadecimal", "hex", true),
-  //   new NavbarInfo("Base64", "b64", true),
-  //   new NavbarInfo("ASCII Codes", "ascii", true),
-  //   new NavbarInfo("Rot13", "rot13", true),
-  // ];
-
   normalText: string = "";
   binaryText: string = "";
   hexText: string = "";
   b64Text: string = "";
   asciiText: string = "";
   rot13Text: string = "";
+
+  letterText: string = "";
+  numberText: string = "";
 
   convertNormalText(){
     this.binaryText = this.text2bin(this.normalText);
@@ -70,6 +63,13 @@ export class ConversComponent {
     this.hexText = this.text2hex(this.normalText);
     this.b64Text = btoa(this.normalText);
     this.asciiText = this.text2ascii(this.normalText);
+  }
+
+  convertLetterText(){
+    this.numberText = this.letter2num(this.letterText);
+  }
+  convertNumberText(){
+    this.letterText = this.num2letter(this.numberText);
   }
 
   text2bin(text: string){
@@ -124,6 +124,22 @@ export class ConversComponent {
     const originalAlpha = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
     const cipher = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
     return rot13.replace(/[a-z]/gi, letter => originalAlpha[cipher.indexOf(letter)]);
+  }
+
+  letter2num(letters: string){
+    return letters.toUpperCase().split('').map(function (char){
+      if(char.charCodeAt(0) <= 90 && char.charCodeAt(0) >= 65)
+        return (char.charCodeAt(0) - 64).toString(10);
+      return "";
+    }).join(' ');
+  }
+
+  num2letter(numbers: string){
+    return numbers.split(' ').map(function (num){
+      if (parseInt(num) >= 1 && parseInt(num) <= 26)
+        return String.fromCharCode(parseInt(num) + 64);
+      return "";
+    }).join('');
   }
 
 }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {NavbarInfo} from './navbar/navbar.component';
+import { NavbarInfo, FragmentInfo } from './navbar/navbar.component';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +11,10 @@ export class AppComponent {
   title = 'Enigame Toolkit';
 
   navlinks = [
-    new NavbarInfo("Conversions", "conversions"),
+    new NavbarInfo("Conversions", "conversions", [
+      new FragmentInfo("Text2Codes", "t2c"),
+      new FragmentInfo("Letter2Number", "l2n")
+    ]),
     new NavbarInfo("Ciphers", 'ciphers'),
     new NavbarInfo("Codes", 'codes'),
     new NavbarInfo("Links", 'links'),

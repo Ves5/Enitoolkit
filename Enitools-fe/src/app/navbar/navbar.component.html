@@ -1,15 +1,32 @@
-<nav class="navbar navbar-expand-lg border-bottom border-secondary mb-2">
+<nav class="navbar navbar-expand-lg bg-dark border-bottom border-secondary mb-2 sticky-top">
   <div class="container-fluid">
     <a class="navbar-brand" routerLink="/">{{title}}</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="nav nav-underline me-auto mb-2 mb-lg-0">
+      <ul class="nav navbar-nav me-auto mb-2 mb-lg-0">
         <ng-template ngFor let-item [ngForOf]="links" let-i="index">
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/{{links[i].link}}" routerLinkActive="active" ariaCurrentWhenActive="page">{{links[i].name}}</a>
-          </li>
+            <ng-template [ngIf]="item.fragments.length == 0" [ngIfElse]="dropdown">
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/{{item.link}}" routerLinkActive="active" ariaCurrentWhenActive="page">{{item.name}}</a>
+              </li>
+            </ng-template>
+            <ng-template #dropdown>
+              <li class="nav-item dropdown">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-dark" routerLink="/{{item.link}}" routerLinkActive="active" ariaCurrentWhenActive="page">{{item.name}}</button>
+                  <button type="button" class="btn btn-dark dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                    <span class="visually-hidden">Toggle Dropdown</span>
+                  </button>
+                  <ul class="dropdown-menu dropdown-menu-dark">
+                    <ng-template ngFor let-frag [ngForOf]="item.fragments">
+                      <li><a class="dropdown-item" routerLink="/{{item.link}}" fragment="{{frag.id}}">{{frag.name}}</a></li>
+                    </ng-template>
+                  </ul>
+                </div>
+              </li>
+            </ng-template>
         </ng-template>
       </ul>
     </div>

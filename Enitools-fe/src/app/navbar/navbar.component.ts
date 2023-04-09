@@ -13,11 +13,21 @@ export class NavbarComponent {
 export class NavbarInfo {
   name: string;
   link: string;
-  fragment: boolean;
+  fragments: FragmentInfo[];
 
-  constructor(n: string = "", l: string = "", f: boolean = false){
+  constructor(n: string = "", l: string = "", f: FragmentInfo[] = []){
     this.name = n;
     this.link = l;
-    this.fragment = f;
+    this.fragments = f;
+  }
+}
+
+export class FragmentInfo {
+  name: string;
+  id: string;
+
+  constructor(n: string, i: string){
+    this.name = n;
+    this.id = i;
   }
 }
