@@ -16,7 +16,11 @@ export class AppComponent {
       new FragmentInfo("Letter2Number", "l2n")
     ]),
     new NavbarInfo("Ciphers", 'ciphers'),
-    new NavbarInfo("Codes", 'codes'),
+    new NavbarInfo("Codes", 'codes',[
+      new FragmentInfo("Morse Code", "morse"),
+      new FragmentInfo("Braille Alphabet", "braille"),
+      new FragmentInfo("Semaphore Flags", "semaphore")
+    ]),
     new NavbarInfo("Links", 'links'),
   ]
 

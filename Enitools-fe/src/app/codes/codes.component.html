@@ -1,1 +1,30 @@
-<p>codes works!</p>
+<div class="container" id="morse">
+    <h2>Morse Code</h2>
+    <div class="row justify-content-center align-items-center">
+        <div class="col">
+            <div class="d-flex flex-column justify-content-center">
+                <div>
+                    <app-text-input-titled title="Morse Code" placeholder="Dots and dashes go here..." [(text)]="morseText" (textChange)="convertM2L()"></app-text-input-titled>
+                </div>
+                <br>
+                <div>
+                    <app-text-input-titled title="Text" placeholder="Text goes here..." [(text)]="lettersText" (textChange)="convertL2M()"></app-text-input-titled>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <img class="img-fluid d-block" src="assets/Morse_Code.jpg"/>
+        </div>
+    </div>
+</div>
+
+<hr>
+<div class="container" id="braille">
+    <h2>Braille Code</h2>
+    <img class="img-fluid mx-auto d-block col-md-8" src="assets/braille_alphabet.jpg"/>
+</div>
+<hr>
+<div class="container" id="semaphore">
+    <h2>Semaphore Flags</h2>
+    <img class="img-fluid mx-auto d-block" src="assets/Semaphore_Signals.jpg"/>
+</div>
