@@ -5,7 +5,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="nav navbar-nav me-auto mb-2 mb-lg-0">
+      <ul class="nav navbar-nav nav-tabs me-auto mb-2 mb-lg-0">
         <ng-template ngFor let-item [ngForOf]="links" let-i="index">
             <ng-template [ngIf]="item.fragments.length == 0" [ngIfElse]="dropdown">
               <li class="nav-item">

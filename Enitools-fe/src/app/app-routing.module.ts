@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { ExtraOptions, RouterModule, Routes } from '@angular/router';
-import { CiphersComponent } from './ciphers/ciphers.component';
-import { HomeComponent } from './home/home.component';
-import { ConversComponent } from './convers/convers.component';
-import { CodesComponent } from './codes/codes.component';
-import { LinksComponent } from './links/links.component';
+import { CiphersComponent } from './components/ciphers/ciphers.component';
+import { HomeComponent } from './components/home/home.component';
+import { ConversComponent } from './components/convers/convers.component';
+import { CodesComponent } from './components/codes/codes.component';
+import { LinksComponent } from './components/links/links.component';
+import { AnagramComponent } from './components/anagram/anagram.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -12,6 +13,7 @@ const routes: Routes = [
   {path: 'conversions', component: ConversComponent},
   {path: 'codes', component: CodesComponent},
   {path: 'links', component: LinksComponent},
+  {path: 'anagram', component: AnagramComponent}
 ];
 
 const routerOptions: ExtraOptions = {

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavbarInfo, FragmentInfo } from './navbar/navbar.component';
+import { NavbarInfo, FragmentInfo } from './components/navbar/navbar.component';
 
 @Component({
   selector: 'app-root',
@@ -16,6 +16,7 @@ export class AppComponent {
       new FragmentInfo("Letter2Number", "l2n")
     ]),
     new NavbarInfo("Ciphers", 'ciphers'),
+    new NavbarInfo("Anagrams", "anagram"),
     new NavbarInfo("Codes", 'codes',[
       new FragmentInfo("Morse Code", "morse"),
       new FragmentInfo("Braille Alphabet", "braille"),
