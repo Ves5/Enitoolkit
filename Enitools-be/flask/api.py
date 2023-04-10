@@ -1,10 +1,12 @@
 from flask import Flask
 from flask_restx import Resource, Api
+from flask_cors import CORS
 import os, json
 from anagram import unscramble
 
 app = Flask(__name__)
 api = Api(app)
+CORS(app)
 
 @api.route('/hello')
 class HelloWorld(Resource):
@@ -22,7 +24,7 @@ class Anagram(Resource):
 @api.route('/links')
 class Links(Resource):
     def get(self):
-        with open(os.path.join(app.root_path, "links.json")) as f:
+        with open(os.path.join(app.root_path, "data/links.json")) as f:
             links = json.load(f)
         return links
 
