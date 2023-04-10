@@ -26,7 +26,7 @@ jobs:
     - name: Build and push Docker image
       uses: docker/build-push-action@v4
       with:
-        context: ./Enitools-fe
+        context: .
         file: ./Dockerfile
         push: true
         tags: ${{ secrets.DOCKER_USERNAME }}/enitools-fe:latest,${{ secrets.DOCKER_USERNAME }}/enitools-fe:${{ vars.FE_VERSION }}
