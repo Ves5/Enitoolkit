@@ -2,8 +2,6 @@ name: Build and Publish Frontend
 
 on:
   push:
-    branches:
-      - master
     tags:
       - fe-v*
 
@@ -11,11 +9,9 @@ jobs:
   build-and-publish:
     runs-on: ubuntu-latest
     steps:
-    - name: Extract version from package.json
-      uses: sergeysova/jq-action@v2
+    - name: Extract version from .env file in root
       id: version
-      with:
-        cmd: 'jq .version ./Enitools-fe/package.json -r'
+      uses: ./.github/actions/dotenv-action
     
     - name: Checkout code
       uses: actions/checkout@v3
@@ -37,4 +33,4 @@ jobs:
         context: ./Enitools-fe
         file: ./Dockerfile
         push: true
-        tags: ${{ secrets.DOCKER_USERNAME }}/enitools-fe:latest,${{ secrets.DOCKER_USERNAME }}/enitools-fe:${{ steps.version.outputs.value }}
+        tags: ${{ secrets.DOCKER_USERNAME }}/enitools-fe:latest,${{ secrets.DOCKER_USERNAME }}/enitools-fe:${{ steps.version.outputs.fe_version }}
