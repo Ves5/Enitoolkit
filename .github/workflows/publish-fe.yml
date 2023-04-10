@@ -9,14 +9,14 @@ jobs:
   build-and-publish:
     runs-on: ubuntu-latest
     steps:
-    - name: Extract version from .env file in root
-      id: version
-      uses: ./.github/actions/dotenv-action
-    
     - name: Checkout code
       uses: actions/checkout@v3
       with:
         path: 'Enitools-fe'
+
+    - name: Extract version from .env file in root
+      id: version
+      uses: ./.github/actions/dotenv-action
 
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v2
@@ -33,4 +33,4 @@ jobs:
         context: ./Enitools-fe
         file: ./Dockerfile
         push: true
-        tags: ${{ secrets.DOCKER_USERNAME }}/enitools-fe:latest,${{ secrets.DOCKER_USERNAME }}/enitools-fe:${{ steps.version.outputs.fe_version }}
+        tags: ${{ secrets.DOCKER_USERNAME }}/enitools-fe:latest,${{ secrets.DOCKER_USERNAME }}/enitools-fe:${{ steps.version.outputs.version }}
