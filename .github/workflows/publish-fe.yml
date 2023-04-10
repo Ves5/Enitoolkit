@@ -1,9 +1,9 @@
 name: Build and Publish Frontend
 
 on:
-  pull_request:
-    branches:
-      - publish-fe
+  push:
+    tags:
+      - fe-v*
 
 jobs:
   build-and-publish:
@@ -33,5 +33,6 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         context: ./Enitools-fe
+        file: ./Dockerfile
         push: true
         tags: ${{ secrets.DOCKER_USERNAME }}/enitools-fe:latest,${{ secrets.DOCKER_USERNAME }}/enitools-fe:${{ steps.version.outputs.value }}
