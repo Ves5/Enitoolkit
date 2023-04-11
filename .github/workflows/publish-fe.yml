@@ -4,8 +4,6 @@ on:
   push:
     tags:
       - fe-v*
-    branches:
-      - master
 
 jobs:
   build-and-publish:
