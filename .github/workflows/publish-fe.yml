@@ -27,6 +27,6 @@ jobs:
       uses: docker/build-push-action@v4
       with:
         context: ./Enitools-fe
-        file: ./Dockerfile
+        file: ./Enitools-fe/Dockerfile
         push: true
         tags: ${{ secrets.DOCKER_USERNAME }}/enitools-fe:latest,${{ secrets.DOCKER_USERNAME }}/enitools-fe:${{ vars.FE_VERSION }}
