@@ -9,7 +9,7 @@ on:
 
 jobs:
   build-and-publish:
-    if: contains(github.event.pull_request.labels.*.name, 'example-label') && github.event.pull_request.merged == true
+    if: contains(github.event.pull_request.labels.*.name, 'be-update') && github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
     - name: Checkout code
