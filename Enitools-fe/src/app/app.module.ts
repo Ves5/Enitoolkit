@@ -14,6 +14,7 @@ import { AnagramComponent } from './components/anagram/anagram.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { SplitPipe } from './split-pipe.pipe';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { FormsModule } from '@angular/forms';
     CodesComponent,
     LinksComponent,
     TextInputTitledComponent,
-    AnagramComponent
+    AnagramComponent,
+    SplitPipe
   ],
   imports: [
     BrowserModule,
