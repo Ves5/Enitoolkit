@@ -20,4 +20,5 @@ RUN chmod +x entrypoint.sh
 # run uwsgi
 EXPOSE 80
 
+ENV version=1.0.1
 CMD [ "./entrypoint.sh" ]

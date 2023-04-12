@@ -8,7 +8,6 @@ app = Flask(__name__)
 api = Api(app)
 CORS(app)
 
-Version = "1.0.1"
 
 @api.route('/hello')
 class HelloWorld(Resource):
@@ -33,7 +32,7 @@ class Links(Resource):
 @api.route('/version')
 class Version(Resource):
     def get(self):
-        return {"version": Version}
+        return {'version': os.environ.get('version')}
 
 if __name__ == '__main__':
     app.run(debug=True)
