@@ -15,10 +15,15 @@
     <hr>
     <!-- Output -->
     <h3>Anagram Solutions:</h3>
-    <ng-template [ngIf]="(anagrams | json) === '{}'" [ngIfElse]="listwords">
+    <ng-template [ngIf]="state == 'idling'">
         Anagrams of entered letters will show up here once they get found.
     </ng-template>
-    <ng-template #listwords>
+    <ng-template [ngIf]="state == 'loading'">
+        <div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </ng-template>
+    <ng-template [ngIf]="state == 'showing'">
         <div class="accordion accordion-flush col-xl-7" id="wordsAccordion">
             <!-- Repeat for every letter count -->
             <ng-template ngFor let-key [ngForOf]="Object.keys(anagrams).reverse()">
