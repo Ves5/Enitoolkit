@@ -1,4 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, ElementRef, Input, Renderer2 } from '@angular/core';
+import { Constants } from 'src/app/config/constants';
+import { ThemeService } from 'src/app/services/theme.service';
 
 @Component({
   selector: 'app-navbar',
@@ -6,8 +8,18 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
+  constructor(private renderer: Renderer2, private elemRef: ElementRef, private themeService: ThemeService) {}
+
   @Input() title: string = "";
   @Input() links: NavbarInfo[] = [];
+
+  themes = Constants.themes;
+  Object = Object;
+
+  changeTheme(theme: string){
+    this.themeService.setTheme(theme, this.elemRef.nativeElement.ownerDocument.documentElement, this.renderer);
+  }
+  
 }
 
 export class NavbarInfo {

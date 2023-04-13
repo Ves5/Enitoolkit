@@ -1,12 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
 import { NavbarInfo, FragmentInfo } from './components/navbar/navbar.component';
+import { Constants } from './config/constants';
+import { ThemeService } from './services/theme.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
   title = 'Enigame Toolkit';
 
@@ -24,5 +26,11 @@ export class AppComponent {
     ]),
     new NavbarInfo("Links", 'links'),
   ]
+
+  constructor(private themeService: ThemeService, private elemRef: ElementRef, private renderer: Renderer2) {}
+
+  ngOnInit(): void {
+    this.themeService.setInitialTheme(this.elemRef.nativeElement.ownerDocument.documentElement, this.renderer);
+  }
 
 }

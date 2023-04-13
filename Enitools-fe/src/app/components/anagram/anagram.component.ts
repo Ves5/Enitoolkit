@@ -9,14 +9,17 @@ import { ApiHttpService } from 'src/app/services/api-http.service';
 export class AnagramComponent {
   anagrams: any = {};
   Object = Object;
+  state: string = "idling"; // "loading"; "showing"
 
   scrambled: string = "";
 
   constructor(private apiService: ApiHttpService) {}
 
   solveAnagrams(){
+    this.state = "loading";
     this.apiService.getData("anagram/" + this.scrambled).subscribe(data => {
       this.anagrams = data;
+      this.state = "showing";
     });
   }
 }
