@@ -6,3 +6,17 @@
         </li>
       </ng-template>
 </ul>
+
+<hr>
+<div class="container col-lg-6">
+  <h3>Adding new links</h3>
+  <form>
+    <label for="TitleInput" class="form-label">Title:</label>
+    <input type="text" id="nameTitle" name="linkTitle" [(ngModel)]="linkTitle" class="form-control mb-3">
+    <label for="urlInput" class="form-label">URL:</label>
+    <input type="text" id="urlInput" name="linkUrl" [(ngModel)]="linkUrl" class="form-control mb-3">
+    <label for="totpInput" class="form-label">Key:</label>
+    <input type="text" id="totpInput" name="linkKey" [(ngModel)]="linkKey" class="form-control mb-3">
+    <button type="submit" class="btn btn-outline-secondary" (click)="sendLink()">Add</button>
+  </form>
+</div>
