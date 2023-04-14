@@ -11,6 +11,8 @@ import { ThemeService } from './services/theme.service';
 export class AppComponent implements OnInit {
 
   title = 'Enigame Toolkit';
+  profileUrl = Constants.profileUrl;
+  repoUrl = Constants.repoUrl;
 
   navlinks = [
     new NavbarInfo("Conversions", "conversions", [
@@ -22,7 +24,8 @@ export class AppComponent implements OnInit {
     new NavbarInfo("Codes", 'codes',[
       new FragmentInfo("Morse Code", "morse"),
       new FragmentInfo("Braille Alphabet", "braille"),
-      new FragmentInfo("Semaphore Flags", "semaphore")
+      new FragmentInfo("Semaphore Flags", "semaphore"),
+      new FragmentInfo("Tap Code", "tap")
     ]),
     new NavbarInfo("Links", 'links'),
   ]
