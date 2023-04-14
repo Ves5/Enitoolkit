@@ -25,7 +25,8 @@ export class AppComponent implements OnInit {
       new FragmentInfo("Morse Code", "morse"),
       new FragmentInfo("Braille Alphabet", "braille"),
       new FragmentInfo("Semaphore Flags", "semaphore"),
-      new FragmentInfo("Tap Code", "tap")
+      new FragmentInfo("Tap Code", "tap"),
+      new FragmentInfo("Sign Language", "signlang")
     ]),
     new NavbarInfo("Links", 'links'),
   ]
