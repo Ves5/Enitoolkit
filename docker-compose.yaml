@@ -13,6 +13,7 @@ services:
     container_name: 'backend'
     ports:
       - 5000:80
-    # it overwrites files
-    # volumes:
-    #   - ./data/:/app/data
+    volumes:
+      - ./data/:/app/data
+    environment:
+      - secret=secret
