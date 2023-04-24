@@ -25,7 +25,6 @@ import { SplitPipe } from './split-pipe.pipe';
     ConversComponent,
     CodesComponent,
     LinksComponent,
-    TextInputTitledComponent,
     AnagramComponent,
     SplitPipe
   ],
@@ -33,6 +32,7 @@ import { SplitPipe } from './split-pipe.pipe';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    TextInputTitledComponent,
     FormsModule
   ],
   providers: [],

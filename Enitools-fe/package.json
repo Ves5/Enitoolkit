@@ -1,6 +1,6 @@
 {
   "name": "enitools-fe",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -18,13 +18,15 @@
     "@angular/platform-browser": "^15.0.0",
     "@angular/platform-browser-dynamic": "^15.0.0",
     "@angular/router": "^15.0.0",
+    "@ng-bootstrap/ng-bootstrap": "^14.1.0",
+    "@popperjs/core": "^2.11.7",
     "bootstrap-icons": "^1.10.4",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.12.0"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^15.0.2",
+    "@angular-devkit/build-angular": "^15.2.6",
     "@angular/cli": "~15.0.2",
     "@angular/compiler-cli": "^15.0.0",
     "@types/jasmine": "~4.3.0",

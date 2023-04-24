@@ -1,5 +1,8 @@
 <div class="card">
-    <div class="card-header">{{title}}</div>
+    <ng-template #popoverContent><div [innerHTML]="popupText"></div></ng-template>
+    <div class="card-header">{{title}} <button *ngIf="popupShown" class="flex-d btn p-0" placement="bottom" [ngbPopover]="popoverContent" data-bs-html="true">
+        <i class="bi bi-question-circle"></i>
+    </button></div>
     <div class="card-body">
         <div class="form-outline">
             <textarea class="form-control" id="{{title}}" rows="4" placeholder="{{placeholder}}" [value]="text" (input)="textChanged($event)"></textarea>
