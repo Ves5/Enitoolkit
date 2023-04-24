@@ -43,7 +43,7 @@ export class ConversComponent {
   convertB64Text(){
     this.normalText = atob(this.b64Text);
     this.binaryText = this.text2bin(this.normalText);
-    this.hexText = this.hex2text(this.hexText);
+    this.hexText = this.text2hex(this.normalText);
     this.asciiText = this.text2ascii(this.normalText);
     this.rot13Text = this.text2rot13(this.normalText);
   }

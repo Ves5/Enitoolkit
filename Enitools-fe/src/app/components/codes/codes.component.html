@@ -4,11 +4,11 @@
         <div class="col">
             <div class="d-flex flex-column justify-content-center">
                 <div>
-                    <app-text-input-titled title="Morse Code" placeholder="Dots and dashes go here..." [(text)]="morseText" (textChange)="convertM2L()"></app-text-input-titled>
+                    <app-text-input-titled title="Morse Code" placeholder="Dots and dashes go here..." [(text)]="morseText" (textChange)="convertM2L()" popupText="Example input:<br/>'. -. .. --. .- -- .'"></app-text-input-titled>
                 </div>
                 <br>
                 <div>
-                    <app-text-input-titled title="Text" placeholder="Text goes here..." [(text)]="lettersText" (textChange)="convertL2M()"></app-text-input-titled>
+                    <app-text-input-titled title="Text" placeholder="Text goes here..." [(text)]="lettersText" (textChange)="convertL2M()" popupText="Example input:<br/>'Enigame'"></app-text-input-titled>
                 </div>
             </div>
         </div>
@@ -37,11 +37,11 @@
         <div class="col-md-4 offset-md-1">
             <div class="d-flex flex-column justify-content-center">
                 <div>
-                    <app-text-input-titled title="Tap/Knock Code" placeholder="Taps go here..." [(text)]="tapText" (textChange)="convertFromTap()"></app-text-input-titled>
+                    <app-text-input-titled title="Tap/Knock Code" placeholder="Taps go here..." [(text)]="tapText" (textChange)="convertFromTap()" popupText="Example input:<br/>'. ..... ... ... .. .... .. .. . . ... .. . .....'<hr>Make sure there is no space or new line after last dot pair"></app-text-input-titled>
                 </div>
                 <br>
                 <div>
-                    <app-text-input-titled title="Text" placeholder="Text goes here..." [(text)]="unTapText" (textChange)="convertToTap()"></app-text-input-titled>
+                    <app-text-input-titled title="Text" placeholder="Text goes here..." [(text)]="unTapText" (textChange)="convertToTap()" popupText="Example input:<br/>'Enigame'"></app-text-input-titled>
                 </div>
             </div>
         </div>

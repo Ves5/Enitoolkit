@@ -19,6 +19,8 @@ export class CiphersComponent implements OnInit{
   shift: number = 3;
   max_c: number = 25;
   direction: boolean = true; // true = left; false = right
+  caesar_text_help = "Example input:<br/>'enigame is awesome'";
+  caesar_cipher_help = "Example input:<br/>'BKFDXJB FP XTBPLJB'";
   
   right_rotate(sh: number) {
     return this.alphabet.substring(sh, this.alphabet.length) + this.alphabet.substring(0, sh);
@@ -57,6 +59,8 @@ export class CiphersComponent implements OnInit{
   vig_input: string = "";
   vig_output: string = "";
   button_state: boolean = false;
+  vig_text_help: string = "Example input (key=ENI):<br/>'enigameisawesome'"
+  vig_cipher_help: string = "Example input (key=ENI):<br/>'IAQKNUIVAEJMWBUI'"
 
   construct_key(base: string){
     let reps: number = Math.floor(base.length / this.keyword.length);
