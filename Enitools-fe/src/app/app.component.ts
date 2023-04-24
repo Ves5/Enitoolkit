@@ -10,7 +10,7 @@ import { ThemeService } from './services/theme.service';
 })
 export class AppComponent implements OnInit {
 
-  title = 'Enigame Toolkit';
+  title = 'Enitools';
   profileUrl = Constants.profileUrl;
   repoUrl = Constants.repoUrl;
 
