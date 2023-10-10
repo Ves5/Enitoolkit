@@ -3,6 +3,9 @@ from collections import Counter
 import itertools
 
 def unscramble(scrambled_letters, index):
+    # Convert the scrambled letters to lowercase
+    scrambled_letters = scrambled_letters.lower()
+    
     # Count the frequency of each letter in the scrambled letters
     letter_counts = Counter(scrambled_letters)
 
