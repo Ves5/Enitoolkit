@@ -1,0 +1,98 @@
+# NodePort Service for frontend
+apiVersion: v1
+kind: Service
+metadata:
+  name: enitoolkit-fe-svc
+spec:
+  type: NodePort
+  selector:
+    app: enitoolkit-fe
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: eni-fe-port
+    nodePort: 30080
+---
+#NodePort Service for backend
+apiVersion: v1
+kind: Service
+metadata:
+  name: enitoolkit-be-svc
+spec:
+  type: NodePort
+  selector:
+    app: enitoolkit-be
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: eni-be-port
+    nodePort: 30081
+---
+# Deployment for frontend
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: enitoolkit-fe
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: enitoolkit-fe
+  template:
+    metadata:
+      labels:
+        app: enitoolkit-fe
+    spec:
+      containers:
+      - name: enitools-fe
+        image: vesso/enitools-fe:latest
+        ports:
+        - containerPort: 80
+          name: eni-fe-port
+        resources:
+          limits:
+            cpu: 500m
+            memory: 512Mi
+          requests:
+            cpu: 250m
+            memory: 256Mi
+---
+# Deployment for backend
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: enitoolkit-be
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: enitoolkit-be
+  template:
+    metadata:
+      labels:
+        app: enitoolkit-be
+    spec:
+      containers:
+      - name: enitools-be
+        image: vesso/enitools-be:latest
+        ports:
+        - containerPort: 80
+          name: eni-be-port
+        env:
+        - name: secret
+          value: "secret"
+        resources:
+          limits:
+            cpu: 500m
+            memory: 512Mi
+          requests:
+            cpu: 250m
+            memory: 256Mi
+        volumeMounts:
+          - name: links-local-volume
+            mountPath: /app/data
+      volumes:
+        - name: links-local-volume
+          hostPath:
+            path: "/var/src/enitools/data"
+            type: Directory
