@@ -67,10 +67,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "Enitools-fe:build:production"
+              "buildTarget": "Enitools-fe:build:production"
             },
             "development": {
-              "browserTarget": "Enitools-fe:build:development"
+              "buildTarget": "Enitools-fe:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -78,7 +78,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Enitools-fe:build"
+            "buildTarget": "Enitools-fe:build"
           }
         },
         "test": {
