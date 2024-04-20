@@ -1,6 +1,6 @@
 <div class="container">
     <h2>Anagram Solver</h2>
-    <p>Currently using Words With Friends (2019) dictionary for the list of words. <b>No</b> wildcards supported.</p>
+    <p>Currently using Words With Friends (2019) dictionary for the list of words. Now <b>supporting</b> wildcards!</p>
     <hr>
     <!-- Input for anagram -->
     <form>
@@ -10,6 +10,12 @@
                 <input type="text" id="scrambledLetters" name="scrambledLetters" class="form-control" aria-describedby="anagramsolve" [(ngModel)]="scrambled" placeholder="Enter letters here...">
                 <button type="submit" class="btn btn-outline-secondary" id="anagramsolve" (click)="solveAnagrams()">Solve</button>
             </div>
+            <br>
+            <!-- <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="anagramexactmode" [(ngModel)]="exactMode" (ngModelChange)="modeChange()">
+                <label class="form-check-label" for="anagramexactmode">Toggle Exact Mode <app-popup-help popupText="Exact Mode searches for only anagrams of the <b>same length</b> as provided scrambled letters."></app-popup-help></label>
+            </div> -->
+            <mat-slide-toggle [checked]="exactMode" (change)="modeChange()">Toggle Exact Mode <app-popup-help popupText="Exact Mode searches only for anagrams of the <b>same length</b> as provided scrambled letters."></app-popup-help></mat-slide-toggle>
         </div>
     </form>
     <hr>
@@ -47,6 +53,9 @@
                 </div>
             </ng-template>
         </div>
+    </ng-template>
+    <ng-template [ngIf]="state == 'error'">
+        <i class="bi bi-x h1"></i>
     </ng-template>
 </div>
 

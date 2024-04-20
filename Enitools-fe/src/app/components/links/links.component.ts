@@ -30,7 +30,7 @@ export class LinksComponent implements OnInit {
       error => console.log(error)
     );
 
-    this.apiService.getData("links").subscribe(data => {
+    this.apiService.getData("links",).subscribe(data => {
       this.links = data;
     });
   }

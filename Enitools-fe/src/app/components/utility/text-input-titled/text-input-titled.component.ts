@@ -1,14 +1,14 @@
 import { Component, EventEmitter, Input, Output} from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { NgbPopoverModule } from '@ng-bootstrap/ng-bootstrap';
 import { CommonModule } from "@angular/common";
+import { PopupHelpComponent } from '../popup-help/popup-help.component';
 
 @Component({
   selector: 'app-text-input-titled',
   standalone: true,
   templateUrl: './text-input-titled.component.html',
   styleUrls: ['./text-input-titled.component.css'],
-  imports: [NgbPopoverModule, FormsModule, CommonModule]
+  imports: [FormsModule, CommonModule, PopupHelpComponent]
 })
 export class TextInputTitledComponent{
 

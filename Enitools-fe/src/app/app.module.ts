@@ -9,12 +9,22 @@ import { HomeComponent } from './components/home/home.component';
 import { ConversComponent } from './components/convers/convers.component';
 import { CodesComponent } from './components/codes/codes.component';
 import { LinksComponent } from './components/links/links.component';
-import { TextInputTitledComponent } from './components/text-input-titled/text-input-titled.component';
+import { TextInputTitledComponent } from './components/utility/text-input-titled/text-input-titled.component';
 import { AnagramComponent } from './components/anagram/anagram.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { SplitPipe } from './split-pipe.pipe';
+import { PopupHelpComponent } from './components/utility/popup-help/popup-help.component';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { NavigationComponent } from './navigation/navigation.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -26,14 +36,24 @@ import { SplitPipe } from './split-pipe.pipe';
     CodesComponent,
     LinksComponent,
     AnagramComponent,
-    SplitPipe
+    SplitPipe,
+    NavigationComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     TextInputTitledComponent,
-    FormsModule
+    FormsModule,
+    PopupHelpComponent,
+    MatSlideToggleModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

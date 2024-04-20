@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit{
 
   ngOnInit(): void {
     this.apiService.getData("version").subscribe(data => {
-      this.be_version = data.version;
+      this.be_version = data;
     });
   }
 
