@@ -1,15 +1,11 @@
-<!-- <app-navigation></app-navigation> -->
+<app-navbar [title]="title" [links]="navlinks" (themeChange)="changeTheme($event)">
+  <div id="alert-box"></div>
 
-<app-navbar [title]="title" [links]="navlinks"></app-navbar>
+  <router-outlet></router-outlet>
 
-<div id="alert-box"></div>
-
-<router-outlet></router-outlet>
-
-<footer class="text-center text-lg-start mt-2">
-    <!-- Copyright -->
-    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-      2023-2024, Made by: Ves <a href="{{profileUrl}}" class="link-body-emphasis fs-5 mx-2"><i class="bi bi-github"></i></a><a href="{{repoUrl}}" class="link-body-emphasis fs-5"><i class="bi bi-git"></i></a>
-    </div>
-    <!-- Copyright -->
-</footer>
+  <footer class="text-center text-lg-start mt-2">
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        2023-2024, Made by: Ves <a href="{{profileUrl}}"><mat-icon class="footer-icon" svgIcon="github-icon" aria-hidden="false" color="primary"></mat-icon></a><a href="{{repoUrl}}"><mat-icon class="footer-icon" svgIcon="git-icon" aria-hidden="false" color="primary"></mat-icon></a>
+      </div>
+  </footer>
+</app-navbar>

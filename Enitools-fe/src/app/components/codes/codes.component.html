@@ -4,11 +4,11 @@
         <div class="col">
             <div class="d-flex flex-column justify-content-center">
                 <div>
-                    <app-text-input-titled title="Morse Code" placeholder="Dots and dashes go here..." [(text)]="morseText" (textChange)="convertM2L()" popupText="Example input:<br/>'. -. .. --. .- -- .'"></app-text-input-titled>
+                    <app-text-input-titled title="Morse Code" [(text)]="morseText" (textChange)="convertM2L()" placeholder="Ex. '. -. .. --. .- -- .'"></app-text-input-titled>
                 </div>
                 <br>
                 <div>
-                    <app-text-input-titled title="Text" placeholder="Text goes here..." [(text)]="lettersText" (textChange)="convertL2M()" popupText="Example input:<br/>'Enigame'"></app-text-input-titled>
+                    <app-text-input-titled title="Text" [(text)]="lettersText" (textChange)="convertL2M()" placeholder="Ex. 'Enigame'"></app-text-input-titled>
                 </div>
             </div>
         </div>
@@ -37,16 +37,16 @@
         <div class="col-md-4 offset-md-1">
             <div class="d-flex flex-column justify-content-center">
                 <div>
-                    <app-text-input-titled title="Tap/Knock Code" placeholder="Taps go here..." [(text)]="tapText" (textChange)="convertFromTap()" popupText="Example input:<br/>'. ..... ... ... .. .... .. .. . . ... .. . .....'<hr>Make sure there is no space or new line after last dot pair"></app-text-input-titled>
+                    <app-text-input-titled title="Tap/Knock Code" [(text)]="tapText" (textChange)="convertFromTap()" placeholder="Ex. '1 5 3 3 2 4 2 2 1 1 3 2 1 5'"></app-text-input-titled>
                 </div>
                 <br>
                 <div>
-                    <app-text-input-titled title="Text" placeholder="Text goes here..." [(text)]="unTapText" (textChange)="convertToTap()" popupText="Example input:<br/>'Enigame'"></app-text-input-titled>
+                    <app-text-input-titled title="Text" [(text)]="unTapText" (textChange)="convertToTap()" placeholder="Ex. 'Enigame'"></app-text-input-titled>
                 </div>
             </div>
         </div>
         <div class="col-md-4 mx-auto text-center">
-            <table class="table table-bordered border-secondary table-sm text-center">
+            <table>
                 <thead>
                     <tr>
                         <th>Taps</th>

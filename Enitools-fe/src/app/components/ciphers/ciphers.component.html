@@ -1,6 +1,6 @@
 <div class="container">
     <h2>Caesar Cipher</h2>
-    <table class="table table-bordered border-secondary table-sm text-center">
+    <table>
         <tbody>
             <tr>
                 <th>Plain</th>
@@ -17,12 +17,16 @@
         </tbody>
     </table>
     <div class="col-md-4">
-        <label for="caesarRange" class="form-label">Shift = {{shift}}</label>
-        <input type="range" class="form-range" min="0" [max]="max_c" step="1" [(ngModel)]="shift" (input)="shift_alphabet()" id="caesarRange">
+        <br>
+        <mat-label for="caesarRange">Shift = {{shift}}</mat-label>
+        <!-- <input type="range" class="form-range" min="0" [max]="max_c" step="1" [(ngModel)]="shift" (input)="shift_alphabet()" id="caesarRange"> -->
+        <mat-slider min="0" [max]="max_c" step="1" id="caesarRange">
+            <input matSliderThumb [(ngModel)]="shift" (input)="shift_alphabet()">
+        </mat-slider>
     </div>
     <div class="row gx-3">
-        <app-text-input-titled class="col-md-6" title="Plain Text" [(text)]="caesar_input" placeholder="Plain text goes here..." (textChange)="encrypt_caesar()" [popupText]="caesar_text_help"></app-text-input-titled>
-        <app-text-input-titled class="col-md-6" title="Cipher Text" [(text)]="caesar_output" placeholder="Cipher text goes here..." (textChange)="decrypt_caesar()" [popupText]="caesar_cipher_help"></app-text-input-titled>
+        <app-text-input-titled class="col-md-6" title="Plain Text" [(text)]="caesar_input" (textChange)="encrypt_caesar()" [placeholder]="caesar_text_help"></app-text-input-titled>
+        <app-text-input-titled class="col-md-6" title="Cipher Text" [(text)]="caesar_output" (textChange)="decrypt_caesar()" [placeholder]="caesar_cipher_help"></app-text-input-titled>
     </div>
 </div>
 <hr>
@@ -51,15 +55,15 @@
         <input type="range" class="form-range" min="0" [max]="max_c" step="1" [(ngModel)]="shift" (input)="shift_alphabet()" id="caesarRange">
     </div> -->
     <div class="row gx-3">
-        <app-text-input-titled class="col-xl-4" title="Plain Text" [(text)]="vig_input" placeholder="Plain text goes here..." (textChange)="btn_toggle()" [popupText]="vig_text_help"></app-text-input-titled>
+        <app-text-input-titled class="col-xl-4" title="Plain Text" [(text)]="vig_input" (textChange)="btn_toggle()" [placeholder]="vig_text_help"></app-text-input-titled>
         <div class="col-xl-4 d-flex flex-column justify-content-center">
-            <button type="button" class="btn btn-outline-secondary col my-2" (click)="encrypt_vig()" [disabled]="!button_state">Encrypt 🠚</button>
-            <div class="form-floating my-2">
-                <input type="text" class="form-control" id="vigkeyword" placeholder="Keyword" [(ngModel)]="keyword" (input)="btn_toggle()">
-                <label for="vigkeyword">Keyword</label>
-            </div>
-            <button type="button" class="btn btn-outline-secondary col my-2" (click)="decrypt_vig()" [disabled]="!button_state">🠘 Decrypt</button>
+            <button mat-stroked-button type="button" (click)="encrypt_vig()" [disabled]="!button_state">Encrypt 🠚</button>
+            <mat-form-field subscriptSizing="dynamic">
+                <mat-label for="vigkeyword">Keyword</mat-label>
+                <input matInput type="text" id="vigkeyword" placeholder="Ex. 'ENI'" [(ngModel)]="keyword" (input)="btn_toggle()">
+            </mat-form-field>
+            <button mat-stroked-button type="button" (click)="decrypt_vig()" [disabled]="!button_state">🠘 Decrypt</button>
         </div>
-        <app-text-input-titled class="col-xl-4" title="Cipher Text" [(text)]="vig_output" placeholder="Cipher text goes here..." (textChange)="btn_toggle()" [popupText]="vig_cipher_help"></app-text-input-titled>
+        <app-text-input-titled class="col-xl-4" title="Cipher Text" [(text)]="vig_output" (textChange)="btn_toggle()" [placeholder]="vig_cipher_help"></app-text-input-titled>
     </div>
 </div>

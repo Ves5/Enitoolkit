@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiHttpService } from '../../services/api-http.service';
 import { HttpParams } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { map, shareReplay } from 'rxjs/operators';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-links',
@@ -9,13 +12,19 @@ import { HttpParams } from '@angular/common/http';
 })
 export class LinksComponent implements OnInit {
 
-  constructor(private apiService: ApiHttpService) {}
+  constructor(private apiService: ApiHttpService, private breakpointObserver: BreakpointObserver) {}
 
   ngOnInit(): void {
     this.apiService.getData("links").subscribe(data => {
       this.links = data;
     });
   }
+
+  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
+  .pipe(
+    map(result => result.matches),
+    shareReplay()
+  );
 
   links: LinkInfo[] = [];
 
@@ -30,7 +39,7 @@ export class LinksComponent implements OnInit {
       error => console.log(error)
     );
 
-    this.apiService.getData("links",).subscribe(data => {
+    this.apiService.getData("links").subscribe(data => {
       this.links = data;
     });
   }

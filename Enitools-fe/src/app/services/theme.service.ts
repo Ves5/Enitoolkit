@@ -1,4 +1,4 @@
-import { Injectable, Renderer2 } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Constants } from 'src/app/config/constants';
 
 @Injectable({
@@ -7,22 +7,25 @@ import { Constants } from 'src/app/config/constants';
 export class ThemeService {
     constructor() {}
 
-    setInitialTheme(tag: any, renderer: Renderer2){
+    setInitialTheme() : boolean {
         let prefferedTheme = localStorage.getItem("theme");
         if (prefferedTheme != null){
-        this.setTheme(prefferedTheme, tag, renderer);
+            return this.setTheme(prefferedTheme == Constants.themes["Dark"]);
         } else {
             let ifDarkTheme = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
             if (ifDarkTheme){
-                this.setTheme(Constants.themes['Dark'], tag, renderer);
+                this.setTheme(ifDarkTheme);
+                return true;
             } else {
-                this.setTheme(Constants.themes['Light'], tag, renderer);
+                this.setTheme(!ifDarkTheme);
+                return false;
             }
         }
     }
 
-    setTheme(theme: string, tag: any, renderer: Renderer2) {
-        localStorage.setItem("theme", theme);
-        renderer.setAttribute(tag, 'data-bs-theme', theme);
+    setTheme(theme: boolean) : boolean {
+        localStorage.setItem("theme", theme ? Constants.themes["Dark"] : Constants.themes["Light"]);
+        // document.body.setAttribute('data-bs-theme', theme ? Constants.themes["Dark"] : Constants.themes["Light"]);
+        return theme;
     }
 }

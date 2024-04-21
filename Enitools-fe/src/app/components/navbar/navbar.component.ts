@@ -1,6 +1,8 @@
-import { Component, ElementRef, Input, Renderer2 } from '@angular/core';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Constants } from 'src/app/config/constants';
-import { ThemeService } from 'src/app/services/theme.service';
+import { Observable } from 'rxjs';
+import { map, shareReplay } from 'rxjs/operators';
 
 @Component({
   selector: 'app-navbar',
@@ -8,7 +10,7 @@ import { ThemeService } from 'src/app/services/theme.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
-  constructor(private renderer: Renderer2, private elemRef: ElementRef, private themeService: ThemeService) {}
+  constructor(private breakpointObserver: BreakpointObserver) {}
 
   @Input() title: string = "";
   @Input() links: NavbarInfo[] = [];
@@ -16,8 +18,21 @@ export class NavbarComponent {
   themes = Constants.themes;
   Object = Object;
 
-  changeTheme(theme: string){
-    this.themeService.setTheme(theme, this.elemRef.nativeElement.ownerDocument.documentElement, this.renderer);
+  isDarkTheme: boolean = Constants.darkThemeDefault;
+  @Output() themeChange: EventEmitter<boolean> = new EventEmitter();
+
+  // changeTheme(theme: string){
+  //   this.themeService.setTheme(theme, this.elemRef.nativeElement.ownerDocument.documentElement, this.renderer);
+  // }
+
+  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
+  .pipe(
+    map(result => result.matches),
+    shareReplay()
+  );
+
+  themeToggle(){
+    this.themeChange.emit(!this.isDarkTheme);
   }
   
 }

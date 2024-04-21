@@ -9,6 +9,7 @@ export class Constants {
         "Dark": "dark", 
         "Light": "light"
     };
+    public static readonly darkThemeDefault: boolean = true;
     public static readonly profileUrl: string = "https://github.com/Ves5";
     public static readonly repoUrl: string = "https://github.com/Ves5/Enitoolkit";
 }

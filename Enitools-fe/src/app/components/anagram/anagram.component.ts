@@ -1,7 +1,10 @@
 import { HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { catchError, throwError } from 'rxjs';
+import { throwError } from 'rxjs';
 import { ApiHttpService } from 'src/app/services/api-http.service';
+import { Observable } from 'rxjs';
+import { map, shareReplay } from 'rxjs/operators';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-anagram',
@@ -14,9 +17,15 @@ export class AnagramComponent {
   state: string = "idling"; // "loading"; "showing"; "error"
 
   scrambled: string = "";
-  exactMode: boolean = false;
+  exactMode: boolean = true;
 
-  constructor(private apiService: ApiHttpService) {}
+  constructor(private apiService: ApiHttpService, private breakpointObserver: BreakpointObserver) {}
+
+  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
+  .pipe(
+    map(result => result.matches),
+    shareReplay()
+  );
 
   public modeChange(){
     this.exactMode = !this.exactMode;
@@ -34,7 +43,7 @@ export class AnagramComponent {
   }
 
   private handleError(err: HttpErrorResponse){
-    if (err.status == 500){
+    if (err.status == 500 || err.status == 400){
       this.state = "error";
       console.error(`Backend returned HTTP code ${err.status}, details: `, err.error);
     }

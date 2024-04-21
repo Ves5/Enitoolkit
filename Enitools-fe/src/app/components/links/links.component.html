@@ -1,14 +1,41 @@
-<h1>Useful links</h1>
-<ul>
-    <ng-template ngFor let-item [ngForOf]="links" let-i="index">
-        <li class="nav-item">
-          <a href="{{item.url}}">{{item.title}}</a>
-        </li>
-      </ng-template>
-</ul>
+<div class="container">
+  <h1>Useful links</h1>
+  <ul>
+      <ng-template ngFor let-item [ngForOf]="links" let-i="index">
+          <li class="nav-item">
+            <a href="{{item.url}}">{{item.title}}</a>
+          </li>
+        </ng-template>
+  </ul>
 
-<hr>
-<div class="accordion accordion-flush col-lg-6" id="hideAddNewLink">
+
+  <mat-divider></mat-divider>
+
+  <mat-accordion [ngClass]="{'shorter-accordion': !(isHandset$ | async)}">
+    <mat-expansion-panel>
+      <mat-expansion-panel-header><mat-panel-title>New link</mat-panel-title></mat-expansion-panel-header>
+      <form class="form-width">
+        <mat-form-field class="form-width">
+          <mat-label for="TitleInput">Title</mat-label>
+          <input matInput type="text" id="nameTitle" name="linkTitle" [(ngModel)]="linkTitle">
+        </mat-form-field>
+        <br>
+        <mat-form-field class="form-width">
+          <mat-label for="urlInput">URL</mat-label>
+          <input matInput type="text" id="urlInput" name="linkUrl" [(ngModel)]="linkUrl">
+        </mat-form-field>
+        <br>
+        <mat-form-field class="form-width">
+          <mat-label for="totpInput">Key</mat-label>
+          <input matInput type="text" id="totpInput" name="linkKey" [(ngModel)]="linkKey">
+        </mat-form-field>
+        <br>
+        <button mat-stroked-button type="submit" (click)="sendLink()">Add</button>
+      </form>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+<!-- <div class="accordion accordion-flush col-lg-6" id="hideAddNewLink">
   <div class="accordion-item">
     <h3 class="accordion-header">
       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse" aria-expanded="false" aria-controls="flush-collapse">
@@ -28,4 +55,4 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->

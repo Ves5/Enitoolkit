@@ -1,0 +1,12 @@
+td {
+    font-family: monospace;
+    /* padding: 0rem 1em; */
+}
+
+table, th, td {
+    border-collapse: collapse;
+    border: 1px solid;
+    text-align: center;
+    table-layout: fixed;
+    width: 100%;
+}

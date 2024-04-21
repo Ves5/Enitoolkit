@@ -1,0 +1,17 @@
+.form-field {
+    width: 40%;
+}
+mat-divider {
+    margin: 1rem 0;
+}
+
+.shorter-accordion {
+    display: block;
+    width: 60%;
+}
+
+.flex-content {
+    display: flex;
+    gap: 5%;
+    flex-wrap: wrap;
+}
