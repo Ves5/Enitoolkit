@@ -1,0 +1,12 @@
+mat-divider {
+    margin: 1rem 0;
+}
+
+.shorter-accordion {
+    display: block;
+    width: 40%;
+}
+
+.form-width {
+    width: 100%;
+}
