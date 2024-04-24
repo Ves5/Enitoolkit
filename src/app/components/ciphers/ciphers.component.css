@@ -1,0 +1,33 @@
+td {
+    font-family: monospace;
+    padding: 0rem 1em;
+}
+
+th {
+    width: 10%;
+}
+
+table, th, td {
+    border-collapse: collapse;
+    border: 1px solid;
+    text-align: center;
+    /* table-layout: fixed; */
+    width: 100%;
+}
+
+table {
+    overflow: auto;
+}
+
+mat-slider {
+    width: 100%;
+}
+
+mat-form-field {
+    margin-bottom: 0.7rem;
+    margin-top: 0.7rem;
+}
+
+mat-divider {
+    margin: 1rem 0;
+}

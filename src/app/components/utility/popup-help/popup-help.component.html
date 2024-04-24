@@ -1,0 +1,4 @@
+<button *ngIf="popupShow" mat-icon-button placement="bottom" [ngbPopover]="popoverContent" data-bs-html="true">
+    <mat-icon color="primary">help</mat-icon>
+</button>
+<ng-template #popoverContent><div [innerHTML]="popupText"></div></ng-template>
