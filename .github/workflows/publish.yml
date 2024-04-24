@@ -1,0 +1,52 @@
+name: Build and Publish Enitoolkit Frontend
+
+on:
+  push:
+    branches: [ "release" ]
+  pull_request:
+    branches: [ "release" ]
+
+jobs:
+  build-and-publish:
+    # if: contains(github.event.pull_request.labels.*.name, 'fe-update') && github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set Version
+      id: set-version
+      run: |
+        delimiter="$(openssl rand -hex 8)"
+        {
+          echo "PACKAGE_JSON<<${delimiter}"
+          cat ./package.json
+          echo "${delimiter}"
+        } >> "$GITHUB_ENV"
+
+    - name: Get Version
+      id: get-version
+      env:
+        VERSION: ${{ fromJson(env.PACKAGE_JSON).version }}
+      run: |
+        echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+        echo "Frontend Version: $VERSION"
+
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v3
+      
+    - name: Login to Docker Hub
+      uses: docker/login-action@v3
+      with:
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+        
+    - name: Build and push Docker image
+      uses: docker/build-push-action@v5
+      env:
+        VERSION: ${{ fromJson(env.PACKAGE_JSON).version }}
+      with:
+        context: .
+        push: true
+        tags: ${{ secrets.DOCKER_USERNAME }}/enitoolkit:latest,${{ secrets.DOCKER_USERNAME }}/enitoolkit:${{ steps.get-version.outputs.version }}

@@ -1,0 +1,23 @@
+<!-- <div class="card"> -->
+    <!-- <ng-template #popoverContent><div [innerHTML]="popupText"></div></ng-template> -->
+    <!-- <div class="card-header">{{title}} <app-popup-help popupText="{{popupText}}" [popupShow]="true"></app-popup-help> -->
+        <!-- <button *ngIf="popupShown" class="flex-d btn p-0" placement="bottom" [ngbPopover]="popoverContent" data-bs-html="true">
+        <i class="bi bi-question-circle"></i>
+    </button> -->
+    <!-- </div>
+    <div class="card-body">
+        <div class="form-outline">
+            <textarea class="form-control" id="{{title}}" rows="4" placeholder="{{placeholder}}" [value]="text" (input)="textChanged($event)"></textarea>
+        </div>
+    </div>
+</div> -->
+
+<mat-card class="card-width">
+    <mat-card-header>{{title}}</mat-card-header>
+    <mat-card-content>
+        <mat-form-field class="full-width">
+            <mat-label>{{title}}</mat-label>
+            <textarea matInput placeholder="{{placeholder}}" [value]="text" (input)="textChanged($event)"></textarea>
+        </mat-form-field>
+    </mat-card-content>
+</mat-card>
