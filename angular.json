@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Enitools-fe": {
+    "Enitoolkit": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/enitools-fe",
+            "outputPath": "dist/enitoolkit",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -67,10 +67,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "Enitools-fe:build:production"
+              "buildTarget": "Enitoolkit:build:production"
             },
             "development": {
-              "buildTarget": "Enitools-fe:build:development"
+              "buildTarget": "Enitoolkit:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -78,7 +78,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "Enitools-fe:build"
+            "buildTarget": "Enitoolkit:build"
           }
         },
         "test": {

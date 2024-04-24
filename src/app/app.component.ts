@@ -4,6 +4,7 @@ import { Constants } from './config/constants';
 import { ThemeService } from './services/theme.service';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -39,6 +40,7 @@ export class AppComponent implements OnInit {
   constructor(private themeService: ThemeService, private iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
     iconRegistry.addSvgIconLiteral("git-icon", sanitizer.bypassSecurityTrustHtml(GIT_ICON));
     iconRegistry.addSvgIconLiteral("github-icon", sanitizer.bypassSecurityTrustHtml(GITHUB_ICON));
+    console.log("Production: " + environment.production);
   }
 
   ngOnInit(): void {
