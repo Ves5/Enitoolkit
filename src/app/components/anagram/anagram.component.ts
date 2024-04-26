@@ -18,6 +18,7 @@ export class AnagramComponent {
 
   scrambled: string = "";
   exactMode: boolean = true;
+  submitDisabled: boolean = false;
 
   constructor(private apiService: ApiHttpService, private breakpointObserver: BreakpointObserver) {}
 
@@ -29,7 +30,24 @@ export class AnagramComponent {
 
   public modeChange(){
     this.exactMode = !this.exactMode;
+    this.validateLetters();
   }
+
+  public validateLetters() {
+    if ((this.scrambled.match(/\*/g)||[]).length == this.scrambled.length) {
+      this.submitDisabled = false;
+      return;
+    }
+    if (((this.scrambled.match(/\*/g)||[]).length > 3 && this.exactMode) || ((this.scrambled.match(/\*/g)||[]).length > 1 && !this.exactMode)){
+      this.submitDisabled = false;
+      return;
+    }
+    if (!(/^[a-zA-z\*]+$/.test(this.scrambled))) {
+      this.submitDisabled = false;
+      return;
+    }
+    this.submitDisabled = true;
+  } 
 
   public solveAnagrams(){
     this.state = "loading";
