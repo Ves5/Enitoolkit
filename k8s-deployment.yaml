@@ -24,9 +24,21 @@ spec:
     app: enitoolkit-be
   ports:
   - protocol: TCP
-    port: 80
+    port: 8080
     targetPort: eni-be-port
     nodePort: 30081
+---
+#ClusterIP service for redis
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis
+spec:
+  selector:
+    app: redis-stack-server
+  ports:
+  - port: 6379
+    targetPort: 6379
 ---
 # Deployment for frontend
 apiVersion: apps/v1
@@ -45,7 +57,7 @@ spec:
     spec:
       containers:
       - name: enitools-fe
-        image: vesso/enitools-fe:latest
+        image: vesso/enitoolkit:latest
         ports:
         - containerPort: 80
           name: eni-fe-port
@@ -74,25 +86,39 @@ spec:
     spec:
       containers:
       - name: enitools-be
-        image: vesso/enitools-be:latest
+        image: vesso/enitoolkitdotnet:latest
         ports:
-        - containerPort: 80
+        - containerPort: 8080
           name: eni-be-port
-        env:
-        - name: secret
-          value: "secret"
         resources:
           limits:
-            cpu: 500m
+            cpu: 750m
             memory: 512Mi
           requests:
             cpu: 250m
             memory: 256Mi
-        volumeMounts:
-          - name: links-local-volume
-            mountPath: /app/data
-      volumes:
-        - name: links-local-volume
-          hostPath:
-            path: "/var/src/enitools/data"
-            type: Directory
+---
+# Deploymenty for Redis Stack (for backend output caching)
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis-stack-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redis-stack-server
+  template:
+    metadata:
+      labels:
+        app: redis-stack-server
+    spec:
+      containers:
+      - name: redis-stack-server
+        image: redis/redis-stack-server:latest
+        resources:
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 6379

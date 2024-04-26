@@ -1,5 +1,6 @@
 <app-navbar [title]="title" [links]="navlinks" (themeChange)="changeTheme($event)">
-  <div id="alert-box"></div>
+  <div id="alert-box" #alertBox>
+  </div>
 
   <router-outlet></router-outlet>
 

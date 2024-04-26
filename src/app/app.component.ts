@@ -5,6 +5,8 @@ import { ThemeService } from './services/theme.service';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 import { environment } from 'src/environments/environment';
+import { AlertService } from './services/alert-service.service';
+import { AlertBoxComponent } from './components/utility/alert-box/alert-box.component';
 
 @Component({
   selector: 'app-root',
@@ -37,7 +39,7 @@ export class AppComponent implements OnInit {
     new NavbarInfo("Links", 'links'),
   ]
 
-  constructor(private themeService: ThemeService, private iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
+  constructor(private themeService: ThemeService, iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
     iconRegistry.addSvgIconLiteral("git-icon", sanitizer.bypassSecurityTrustHtml(GIT_ICON));
     iconRegistry.addSvgIconLiteral("github-icon", sanitizer.bypassSecurityTrustHtml(GITHUB_ICON));
     console.log("Production: " + environment.production);
@@ -46,6 +48,10 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     // this.themeService.setInitialTheme(this.elemRef.nativeElement.ownerDocument.documentElement, this.renderer);
     this.themeService.setInitialTheme();
+
+    // if (!environment.production) {
+    //   this.alertService.warning("Currently working in development mode.")
+    // }
   }
 
   changeTheme(theme: boolean){

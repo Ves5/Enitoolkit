@@ -3,8 +3,6 @@ name: Build and Publish Enitoolkit Frontend
 on:
   push:
     branches: [ "release" ]
-  pull_request:
-    branches: [ "release" ]
 
 jobs:
   build-and-publish:
