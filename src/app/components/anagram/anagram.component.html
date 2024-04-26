@@ -1,13 +1,19 @@
 <div class="container">
     <h2>Anagram Solver</h2>
     <p>Currently using Words With Friends (2019) dictionary for the list of words. Now <b>supporting</b> wildcards!</p>
+    <p>Wildcard character: <b>*</b>.</p>
+    <p>
+        <b>Note:</b><br>
+        Currently only allowed 3 wildcards for Exact Mode turned on and 1 wildcard with Exact Mode turned off for performance reasons.<br>
+        Not possible to use only wildcards for input.
+    </p>
     <mat-divider></mat-divider>
     <!-- Input for anagram -->
     <form>
         <mat-form-field class="form-field" subscriptSizing="dynamic">
                 <mat-label for="scrambledLetters" class="form-label">Scrambled letters</mat-label>
-                <input matInput type="text" id="scrambledLetters" name="scrambledLetters" aria-describedby="anagramsolve" [(ngModel)]="scrambled" placeholder="Enter letters here...">
-                <button mat-icon-button matSuffix type="submit" id="anagramsolve" (click)="solveAnagrams()" aria-label="Solve Anagram"><mat-icon>arrow_forward</mat-icon></button>
+                <input matInput type="text" id="scrambledLetters" name="scrambledLetters" aria-describedby="anagramsolve" [(ngModel)]="scrambled" placeholder="Enter letters here..." (input)="validateLetters()">
+                <button mat-icon-button matSuffix type="submit" id="anagramsolve" (click)="solveAnagrams()" aria-label="Solve Anagram" [disabled]="!submitDisabled"><mat-icon>arrow_forward</mat-icon></button>
         </mat-form-field>
     </form>
     <mat-slide-toggle [checked]="exactMode" (change)="modeChange()">Toggle Exact Mode</mat-slide-toggle>
