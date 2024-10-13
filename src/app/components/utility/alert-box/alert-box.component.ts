@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Message } from 'src/app/services/alert-service.service';
 
 @Component({
   selector: 'app-alert-box',
@@ -9,7 +10,13 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrl: './alert-box.component.css'
 })
 export class AlertBoxComponent{
-  @Input() message: any;
+  @Input() message!: Message;
+
+  @Output() close: EventEmitter<any> = new EventEmitter();
+
+  emitClose() {
+    this.close.emit();
+  }
 
   constructor() {}
 }
