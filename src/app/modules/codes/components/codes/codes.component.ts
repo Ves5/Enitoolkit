@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CodesService } from 'src/app/services/codes.service';
+import { CodesService } from 'src/app/modules/codes/services/codes.service';
 
 @Component({
   selector: 'app-codes',

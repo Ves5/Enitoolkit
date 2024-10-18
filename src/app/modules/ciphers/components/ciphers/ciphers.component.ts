@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CiphersService } from 'src/app/services/ciphers.service';
+import { CiphersService } from 'src/app/modules/ciphers/services/ciphers.service';
 
 @Component({
   selector: 'app-ciphers',

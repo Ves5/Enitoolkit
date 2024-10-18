@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ConversionsService } from 'src/app/services/conversions.service';
+import { ConversionsService } from 'src/app/modules/conversions/services/conversions.service';
 
 @Component({
   selector: 'app-convers',

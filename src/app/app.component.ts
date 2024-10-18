@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavbarInfo, FragmentInfo } from './components/navbar/navbar.component';
+// import { NavbarInfo, FragmentInfo } from './modules/navigation/components/navbar/navbar.component';
 import { Constants } from './config/constants';
 import { ThemeService } from './services/theme.service';
 import { MatIconRegistry } from '@angular/material/icon';
@@ -21,23 +21,6 @@ export class AppComponent implements OnInit {
 
   isDarkMode: boolean = Constants.darkThemeDefault;
   // theme: string = "dark";
-
-  navlinks = [
-    new NavbarInfo("Conversions", "conversions", [
-      new FragmentInfo("Text2Codes", "t2c"),
-      new FragmentInfo("Letter2Number", "l2n")
-    ]),
-    new NavbarInfo("Ciphers", 'ciphers'),
-    new NavbarInfo("Anagrams", "anagram"),
-    new NavbarInfo("Codes", 'codes',[
-      new FragmentInfo("Morse Code", "morse"),
-      new FragmentInfo("Braille Alphabet", "braille"),
-      new FragmentInfo("Semaphore Flags", "semaphore"),
-      new FragmentInfo("Tap Code", "tap"),
-      new FragmentInfo("Sign Language", "signlang")
-    ]),
-    new NavbarInfo("Links", 'links'),
-  ]
 
   constructor(private themeService: ThemeService, iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
     iconRegistry.addSvgIconLiteral("git-icon", sanitizer.bypassSecurityTrustHtml(GIT_ICON));

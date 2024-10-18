@@ -5,7 +5,7 @@
   [opened]="(isHandset$ | async) === false"
   [ngClass]="{'hidden': !(isHandset$ | async)}">
     <mat-nav-list>
-      <ng-template ngFor let-item [ngForOf]="links" let-i="index">
+      <ng-template ngFor let-item [ngForOf]="navLinks" let-i="index">
         <a mat-list-item routerLink="/{{item.link}}" routerLinkActive="active-link">{{item.name}}</a>
       </ng-template>
     </mat-nav-list>
@@ -20,7 +20,7 @@
         <mat-icon>menu</mat-icon>
       </button>
       <a mat-button color="base" routerLink="/"><h1>{{title}}</h1></a>
-      <ng-template *ngIf="!(isHandset$ | async)" ngFor let-item [ngForOf]="links" let-i="index">
+      <ng-template *ngIf="!(isHandset$ | async)" ngFor let-item [ngForOf]="navLinks" let-i="index">
         <a mat-button type="button" color="accent" routerLink="/{{item.link}}" routerLinkActive="mat-accent navbar-button-selected">{{item.name}}</a>
       </ng-template>
       <span class="spacer"></span>
