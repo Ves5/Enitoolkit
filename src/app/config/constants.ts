@@ -5,8 +5,8 @@ import packageJson from "../../../package.json"
 export class Constants {
     public static readonly version: string = packageJson.version;
     public static readonly themes: {[index: string]:any} = {
-        "Dark": "dark", 
-        "Light": "light"
+        "dark": "dark-theme", 
+        "light": "light-theme"
     };
     public static readonly darkThemeDefault: boolean = true;
     public static readonly profileUrl: string = "https://github.com/Ves5";

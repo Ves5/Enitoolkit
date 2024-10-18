@@ -4,6 +4,7 @@ import { Constants } from 'src/app/config/constants';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { NavigationService, NavInfo } from '../../services/navigation.service';
+import { ThemeService } from 'src/app/services/theme.service';
 
 @Component({
   selector: 'app-navbar',
@@ -11,19 +12,27 @@ import { NavigationService, NavInfo } from '../../services/navigation.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  constructor(private breakpointObserver: BreakpointObserver, private navSvc: NavigationService) {}
+  constructor(
+    private breakpointObserver: BreakpointObserver, 
+    private navSvc: NavigationService, 
+    private themeSvc: ThemeService) {}
+
   ngOnInit(): void {
     this.navLinks = this.navSvc.getNavInfoTable();
+    this.theme = this.themeSvc.getTheme();
+    this.isDarkTheme = this.theme == Constants.themes['dark'] ? true : false;
   }
 
   @Input() title: string = "";
   navLinks: NavInfo[] = [];
 
-  themes = Constants.themes;
-  Object = Object;
+  theme: string = ""
+
+  // themes = Constants.themes;
+  // Object = Object;
 
   isDarkTheme: boolean = Constants.darkThemeDefault;
-  @Output() themeChange: EventEmitter<boolean> = new EventEmitter();
+  // @Output() themeChange: EventEmitter<boolean> = new EventEmitter();
 
   // changeTheme(theme: string){
   //   this.themeService.setTheme(theme, this.elemRef.nativeElement.ownerDocument.documentElement, this.renderer);
@@ -36,7 +45,8 @@ export class NavbarComponent implements OnInit {
   );
 
   themeToggle(){
-    this.themeChange.emit(!this.isDarkTheme);
+    this.theme = this.themeSvc.switchTheme()
+    this.isDarkTheme = !this.isDarkTheme;
   }
   
 }
