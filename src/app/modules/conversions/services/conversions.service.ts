@@ -46,7 +46,7 @@ export class ConversionsService {
       return "";
     return ascii.split(' ').map(function (code){
       return String.fromCharCode(parseInt(code, 10));
-    }).join(' ');
+    }).join('');
   }
 
   private alphabet : string = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
