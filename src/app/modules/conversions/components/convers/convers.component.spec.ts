@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ConversComponent } from './convers.component';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { TextInputTitledStubComponent } from 'src/test/mock-components';
 
 describe('ConversComponent', () => {
   let component: ConversComponent;
@@ -8,7 +10,9 @@ describe('ConversComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ConversComponent ]
+      declarations: [ ConversComponent ],
+      imports: [ TextInputTitledStubComponent ],
+      schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
     })
     .compileComponents();
 

@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FragmentInfo, NavigationService, NavInfo } from '../navigation/services/navigation.service';
+import { NavigationService, NavInfo } from '../navigation/services/navigation.service';
 import { CiphersComponent } from './components/ciphers/ciphers.component';
 import { FormsModule } from '@angular/forms';
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { TextInputTitledComponent } from 'src/app/components/utility/text-input-titled/text-input-titled.component';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatSliderModule } from '@angular/material/slider';

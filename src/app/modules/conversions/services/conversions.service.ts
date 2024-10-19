@@ -49,16 +49,15 @@ export class ConversionsService {
     }).join(' ');
   }
 
+  private alphabet : string = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  private cipher : string = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM"
+
   text2rot13(text: string){
-    const originalAlpha = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    const cipher = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
-    return text.replace(/[a-z]/gi, letter => cipher[originalAlpha.indexOf(letter)]);
+    return text.replace(/[a-z]/gi, letter => this.cipher[this.alphabet.indexOf(letter)]);
   }
 
   rot132text(rot13: string){
-    const originalAlpha = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    const cipher = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
-    return rot13.replace(/[a-z]/gi, letter => originalAlpha[cipher.indexOf(letter)]);
+    return rot13.replace(/[a-z]/gi, letter => this.alphabet[this.cipher.indexOf(letter)]);
   }
 
   letter2num(letters: string){

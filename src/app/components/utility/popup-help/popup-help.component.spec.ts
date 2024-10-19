@@ -8,7 +8,7 @@ describe('PopupHelpComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PopupHelpComponent ]
+      imports: [ PopupHelpComponent ]
     })
     .compileComponents();
 

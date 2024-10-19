@@ -3,6 +3,7 @@ import packageJson from "../../../package.json"
 
 @Injectable()
 export class Constants {
+    public static readonly title: string = "Enitools";
     public static readonly version: string = packageJson.version;
     public static readonly themes: {[index: string]:any} = {
         "dark": "dark-theme", 

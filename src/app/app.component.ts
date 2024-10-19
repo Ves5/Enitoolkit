@@ -6,7 +6,6 @@ import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 import { environment } from 'src/environments/environment';
 import { AlertService } from './services/alert-service.service';
-import { AlertBoxComponent } from './components/utility/alert-box/alert-box.component';
 
 @Component({
   selector: 'app-root',
@@ -15,10 +14,11 @@ import { AlertBoxComponent } from './components/utility/alert-box/alert-box.comp
 })
 export class AppComponent implements OnInit {
 
-  title = 'Enitools';
+  title = Constants.title;
   profileUrl = Constants.profileUrl;
   repoUrl = Constants.repoUrl;
 
+  currentYear: number = new Date().getFullYear();
   // isDarkMode: boolean = Constants.darkThemeDefault;
   // theme: string = "dark";
 
