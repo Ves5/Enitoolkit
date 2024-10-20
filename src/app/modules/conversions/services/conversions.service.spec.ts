@@ -29,6 +29,7 @@ describe('ConversionsService', () => {
   });
 
   // ------------------ Tests ------------------
+  // Correct cases
 
   // Classic conversions
   // -------------------
@@ -133,4 +134,9 @@ describe('ConversionsService', () => {
   it(`should convert numbers '${numbers}' to text uppercase '${textUpper}'`, () => {
     expect(service.letter2num(textLower)).toEqual(numbers);
   })
+
+  // ------------------ Tests ------------------
+  // Edge cases
+
+  
 });

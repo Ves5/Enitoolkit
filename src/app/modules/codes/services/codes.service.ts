@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { string } from 'yaml/dist/schema/common/string';
 
 @Injectable({
   providedIn: 'root'
@@ -51,7 +52,7 @@ export class CodesService {
         }
       }
     });
-    return encode;
+    return encode.trim();
   }
 }
 
@@ -93,7 +94,6 @@ const MORSE_CODE = {
   '----.':  '9',
   '-----':  '0',
 };
-
 
 const TAP_CODE = [
   ['A', 'B', 'C', 'D', 'E'],
