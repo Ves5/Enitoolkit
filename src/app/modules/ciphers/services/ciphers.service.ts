@@ -58,7 +58,7 @@ export class CiphersService {
     return cipher;
   }
 
-  decrypt_vig(input: string, keyword: string){
+  decrypt_vigenere(input: string, keyword: string){
     var plain = "";
     let key_v = this.construct_key(input, keyword)
     input = input.toUpperCase();

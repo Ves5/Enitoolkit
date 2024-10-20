@@ -53,7 +53,7 @@ export class CiphersComponent implements OnInit{
   }
 
   decrypt_vig(){
-    this.vig_input = this.cipherServ.decrypt_vig(this.vig_output, this.keyword);
+    this.vig_input = this.cipherServ.decrypt_vigenere(this.vig_output, this.keyword);
   }
 
   btn_toggle(){
