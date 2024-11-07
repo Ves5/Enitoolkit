@@ -1,0 +1,33 @@
+.hidden {
+    display: none;
+}
+
+.sidenav-container {
+  height: 100vh;
+  /* padding-bottom: 5vh; */
+  /* padding-top: 5vh; */
+}
+
+.sidenav {
+  width: 200px;
+  height: 100%;
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  margin-bottom: 2vh;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+.navbar-button-selected {
+  background: rgba(0, 0, 0, .2);
+}

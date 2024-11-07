@@ -24,7 +24,7 @@ export class AlertService {
   }
 }
 
-class Message {
+export class Message {
   text: string;
   type: MessageType;
 
@@ -35,7 +35,7 @@ class Message {
 
 }
 
-enum MessageType {
+export enum MessageType {
   Danger = "danger",
   Warning = "warning",
   Success = "success"

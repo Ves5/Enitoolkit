@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TextInputTitledComponent } from './text-input-titled.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('TextInputTitledComponent', () => {
   let component: TextInputTitledComponent;
@@ -8,7 +9,7 @@ describe('TextInputTitledComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TextInputTitledComponent ]
+      imports: [ TextInputTitledComponent, BrowserAnimationsModule ]
     })
     .compileComponents();
 
