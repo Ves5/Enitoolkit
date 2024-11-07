@@ -1,11 +1,9 @@
-<app-navbar [title]="title" (themeChange)="changeTheme($event)">
-  <app-alert-list></app-alert-list>
-
+<app-navbar [title]="title">
   <router-outlet></router-outlet>
 
   <footer class="text-center text-lg-start mt-2">
       <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-        2023-2024, Made by: Ves <a href="{{profileUrl}}"><mat-icon class="footer-icon" svgIcon="github-icon" aria-hidden="false" color="primary"></mat-icon></a><a href="{{repoUrl}}"><mat-icon class="footer-icon" svgIcon="git-icon" aria-hidden="false" color="primary"></mat-icon></a>
+        2023-{{currentYear}}, Made by: Ves <a href="{{profileUrl}}"><mat-icon class="footer-icon" svgIcon="github-icon" aria-hidden="false" color="primary"></mat-icon></a><a href="{{repoUrl}}"><mat-icon class="footer-icon" svgIcon="git-icon" aria-hidden="false" color="primary"></mat-icon></a>
       </div>
   </footer>
 </app-navbar>

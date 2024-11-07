@@ -6,7 +6,6 @@ import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 import { environment } from 'src/environments/environment';
 import { AlertService } from './services/alert-service.service';
-import { AlertBoxComponent } from './components/utility/alert-box/alert-box.component';
 
 @Component({
   selector: 'app-root',
@@ -15,11 +14,12 @@ import { AlertBoxComponent } from './components/utility/alert-box/alert-box.comp
 })
 export class AppComponent implements OnInit {
 
-  title = 'Enitools';
+  title = Constants.title;
   profileUrl = Constants.profileUrl;
   repoUrl = Constants.repoUrl;
 
-  isDarkMode: boolean = Constants.darkThemeDefault;
+  currentYear: number = new Date().getFullYear();
+  // isDarkMode: boolean = Constants.darkThemeDefault;
   // theme: string = "dark";
 
   constructor(private themeService: ThemeService, iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
@@ -30,17 +30,17 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     // this.themeService.setInitialTheme(this.elemRef.nativeElement.ownerDocument.documentElement, this.renderer);
-    this.themeService.setInitialTheme();
+    // this.themeService.oldSetInitialTheme();
 
     // if (!environment.production) {
     //   this.alertService.warning("Currently working in development mode.")
     // }
   }
 
-  changeTheme(theme: boolean){
-    this.isDarkMode = theme;
-    // document.body.setAttribute('data-bs-theme', theme ? Constants.themes["Dark"] : Constants.themes["Light"]);
-  }
+  // changeTheme(theme: boolean){
+  //   this.isDarkMode = theme;
+  //   // document.body.setAttribute('data-bs-theme', theme ? Constants.themes["Dark"] : Constants.themes["Light"]);
+  // }
 }
 
 const GIT_ICON = 

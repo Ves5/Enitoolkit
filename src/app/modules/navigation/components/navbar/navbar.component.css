@@ -3,11 +3,14 @@
 }
 
 .sidenav-container {
-  height: 100%;
+  height: 100vh;
+  /* padding-bottom: 5vh; */
+  /* padding-top: 5vh; */
 }
 
 .sidenav {
   width: 200px;
+  height: 100%;
 }
 
 .sidenav .mat-toolbar {
